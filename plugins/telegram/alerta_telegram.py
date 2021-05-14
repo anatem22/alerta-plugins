@@ -41,8 +41,8 @@ TELEGRAM_SOUND_NOTIFICATION_SEVERITY = app.config.get('TELEGRAM_SOUND_NOTIFICATI
                           or os.environ.get('TELEGRAM_SOUND_NOTIFICATION_SEVERITY')
 TELEGRAM_DISABLE_NOTIFICATION_SEVERITY = app.config.get('TELEGRAM_DISABLE_NOTIFICATION_SEVERITY') \
                           or os.environ.get('TELEGRAM_DISABLE_NOTIFICATION_SEVERITY')
-TELEGRAM_DISABLE_NOTIFICATION_EVENT = app.config.get('TELEGRAM_DISABLE_NOTIFICATION_EVENT') \
-                          or os.environ.get('TELEGRAM_DISABLE_NOTIFICATION_EVENT')
+#TELEGRAM_DISABLE_NOTIFICATION_EVENT = app.config.get('TELEGRAM_DISABLE_NOTIFICATION_EVENT') \
+#                          or os.environ.get('TELEGRAM_DISABLE_NOTIFICATION_EVENT')
 
 DASHBOARD_URL = app.config.get('DASHBOARD_URL', '') \
                 or os.environ.get('DASHBOARD_URL')
@@ -118,9 +118,9 @@ class TelegramBot(PluginBase):
             if alert.severity in TELEGRAM_DISABLE_NOTIFICATION_SEVERITY:
                 return
 
-        if TELEGRAM_DISABLE_NOTIFICATION_EVENT:
-            if alert.event in TELEGRAM_DISABLE_NOTIFICATION_EVENT:
-                return
+ #       if TELEGRAM_DISABLE_NOTIFICATION_EVENT:
+ #           if alert.event in TELEGRAM_DISABLE_NOTIFICATION_EVENT:
+ #               return
 
         LOG.debug('Telegram: post_receive sendMessage disable_notification=%s', str(disable_notification))
 
