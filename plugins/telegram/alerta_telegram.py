@@ -114,7 +114,7 @@ class TelegramBot(PluginBase):
             disable_notification = False
 #            break
         if TELEGRAM_DISABLE_NOTIFICATION_SEVERITY:
-            if alert.group in TELEGRAM_DISABLE_NOTIFICATION_SEVERITY:
+            if alert.severity in TELEGRAM_DISABLE_NOTIFICATION_SEVERITY:
                 return
 #                break
 
