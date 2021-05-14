@@ -22,11 +22,11 @@ TIER_TWO_CUSTOMERS = [
 
 def rules(alert, plugins):
 
-    if alert.customer in TIER_ONE_CUSTOMERS:
+    if alert.group in TIER_ONE_CUSTOMERS:
         return [
             plugins['telegram']
         ]
-    elif alert.customer in TIER_TWO_CUSTOMERS:
+    elif alert.group in TIER_TWO_CUSTOMERS:
         return [
             plugins['rocketchat']
         ]
