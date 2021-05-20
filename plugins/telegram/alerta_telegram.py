@@ -109,6 +109,7 @@ class TelegramBot(PluginBase):
 
         if TELEGRAM_SOUND_NOTIFICATION_SEVERITY:
             disable_notification = True
+            events = alert.event.split()[0]
             if alert.severity in TELEGRAM_SOUND_NOTIFICATION_SEVERITY:
                 disable_notification = False
         else:
@@ -117,10 +118,11 @@ class TelegramBot(PluginBase):
         if TELEGRAM_DISABLE_NOTIFICATION_SEVERITY:
             if alert.severity in TELEGRAM_DISABLE_NOTIFICATION_SEVERITY:
                 return
+            elif events in TELEGRAM_DISABLE_NOTIFICATION_SEVERITY:
+                return
 
- #       if TELEGRAM_DISABLE_NOTIFICATION_EVENT:
- #           if alert.event in TELEGRAM_DISABLE_NOTIFICATION_EVENT:
- #               return
+
+
 
         LOG.debug('Telegram: post_receive sendMessage disable_notification=%s', str(disable_notification))
 
